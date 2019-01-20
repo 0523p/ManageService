@@ -1,6 +1,8 @@
 package com.ManageService.entity;
 
-public class SystemUser {
+import java.io.Serializable;
+
+public class SystemUser implements Serializable {
     private int id;
     private String loginName;
     private String pwd;
