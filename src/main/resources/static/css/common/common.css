@@ -1,0 +1,104 @@
+.zdy-btn {
+    padding: 1px;
+    width: 82px;
+    border-radius: 0px;
+    margin: 0px 6px;
+}
+
+.zdy-btn:focus {
+    outline: 0;
+}
+
+.zdy-title {
+    color: #191f5d;
+    font-family: '微软雅黑';
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.zdy-title-17 {
+    color: #191f5d;
+    font-family: '微软雅黑';
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.zdy-table-operator {
+    margin: 0px 5px;
+    cursor: pointer;
+    font-family: '微软雅黑';
+}
+
+.zdy-table-operator-ok {
+    color: #3280fc;
+}
+
+.zdy-table-operator-warning {
+    color: #ea644a;
+}
+
+.zdy-table-operator-success {
+    color: #228B22;
+}
+
+.common-error {
+    color: red;
+}
+
+
+/**datatables**/
+
+table.dataTable tbody tr.selected,
+table.dataTable tbody th.selected,
+table.dataTable tbody td.selected {
+    color: #353535;
+}
+
+table.dataTable tbody>tr.selected,
+table.dataTable tbody>tr>.selected {
+    background-color: #B0BED9;
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -26px;
+    text-align: center;
+    padding: 1em 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dataTables_length {
+    width: 160px;
+    float: left;
+}
+
+.dataTables_info {
+    width: 400px;
+    float: left;
+    padding-top: 0px;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 2px;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 1600px) {
+  .pagination {
+     margin-left: -200px !important;
+  }
+
+  .dataTables_length {
+      display: none !important;
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  .pagination {
+     margin-left: -200px !important;
+  }
+}

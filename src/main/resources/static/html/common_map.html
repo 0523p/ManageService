@@ -1,0 +1,23 @@
+<!-- 选择站点 -->
+<div class="modal" id="common-site-map-modal">
+    <div class="modal-dialog modal-lg" style="width: 80%; height: 85%;">
+        <div class="modal-content" style="width: 100%; height: 100%;">
+            <div class="modal-body common-modal-body" style="padding: 0px; width: 100%; height: 100%;">
+                <div id="commonSiteSelectMap" class="baiduMap" style="height: 600px; width: 100%; height: 100%;"></div>
+                <div class="site_list" id="select-sites" style="width: 210px;overflow:scroll; height: 90%; position: absolute; top: 5%; left: 16px;background-color: rgba(255, 255, 255, 0.91); padding: 7px;">
+                    <div style="width: 100%; height: 32px;color: #191f5d; font-family: '微软雅黑'; font-size: 15px; font-weight: bold;">已选择站点:</div>
+                    <div id="sdiv" style="margin: 0px; padding: 0px;">
+                        
+                    </div>
+                </div>
+                <div class="site_list" style="width: 154px; height: 32px; position: absolute; right: 8px; bottom: 8px; background-color: rgba(255, 255, 255, 0.91);">
+                    <button class="btn btn-primary" id="common-site-map-submit" style="float:left; width: 72px; height: 32px; margin-right: 10px" onclick="cssm_complate();">确定</button>
+                    <button class="btn btn-danger" data-dismiss="modal" style="float:left; width: 72px; height: 32px;">取消</button>
+                </div>
+                <div class="site_list" style="width: 32px; height: 32px; position: absolute; right: 0px; top: 0px; background-color: rgba(255, 255, 255, 0.91);">
+                    <button class="btn btn-warning" data-dismiss="modal" style="width: 32px; height: 32px;">x</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

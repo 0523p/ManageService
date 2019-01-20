@@ -1,0 +1,31 @@
+<!-- 模态框HTML弹出层 挂起 -->
+<div class="modal fade" id="Common_Tip_Dialog">
+    <div class="modal-dialog common-modal-dialog" style="width: 530px; z-index: 99998;">
+        <div class="modal-content">
+            <div class="modal-header common-modal-header">
+                <h4 id="title" class="modal-title">提示</h4>
+            </div>
+            <div class="modal-body common-modal-body" style="min-height: 102px; width: 500px;">
+                <div id="suc" style="display: none;">
+                    <div class="alert alert-success with-icon common-t" style="margin-bottom: 0px; background-color: #FFF;">
+                        <i class="icon-ok-sign"></i>
+                        <div class="content">
+                            <h4 id="txt"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="fail" style="display: none;">
+                    <div class="alert alert-danger with-icon common-t" style="margin-bottom: 0px; background-color: #FFF;">
+                        <i class="icon-remove-sign"></i>
+                        <div class="content">
+                            <h4 id="txt"></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer common-modal-footer">
+                <button id="btn4" type="button" class="btn btn-default common-btn" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

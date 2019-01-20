@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ManageService.dao.FileEntityMapper">
+  <resultMap id="BaseResultMap" type="com.ManageService.entity.FileEntity">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="size" jdbcType="INTEGER" property="size" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="user" jdbcType="VARCHAR" property="user" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="checksum" jdbcType="VARCHAR" property="checksum" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_file
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ManageService.entity.FileEntity">
+    insert into t_file (id, name, type, 
+      size, time, user, path, 
+      checksum)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{size,jdbcType=INTEGER}, #{time,jdbcType=VARCHAR}, #{user,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
+      #{checksum,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ManageService.entity.FileEntity">
+    update t_file
+    set name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      size = #{size,jdbcType=INTEGER},
+      time = #{time,jdbcType=VARCHAR},
+      user = #{user,jdbcType=VARCHAR},
+      path = #{path,jdbcType=VARCHAR},
+      checksum = #{checksum,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, name, type, size, time, user, path, checksum
+    from t_file
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, type, size, time, user, path, checksum
+    from t_file
+  </select>
+</mapper>

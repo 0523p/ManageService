@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>逸淘软件</title>
+    <script type="text/javascript" src="../js/boot.js"></script>
+    <script type="text/javascript">
+    resourceImport('jquery;zui;common;common_ajax;common_logout_dialog;', '');
+    </script>
+    <script src="js/page/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/page/login.css">
+</head>
+
+<body>
+    <div class="loginfrm">
+        <div class="sysname">
+            <label>管理系统</label>
+        </div>
+        <div class="input4login">
+            <div class="line">
+                <span>账号：</span>
+                <input type="text" id="loginName" onkeydown=KeyDown()>
+            </div>
+            <div class="line">
+                <span>密码：</span>
+                <input type="password" id="pwd" onkeydown=KeyDown()>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-12 info">
+                    <font id="info" color="#FF0000"></font>
+                </label>
+            </div>
+        </div>
+        <div class="loginbtn">
+            <button id="goHome" class="btn btn-primary loginButton">登录</button>
+        </div>
+        <div class="bottom">
+            <div class="item">
+                <div class="checkbox" style="margin: 0px;">
+                    <label>
+                        <input type="checkbox" style="margin-top: 5px;"><span class="point">记住账号</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

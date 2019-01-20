@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>application</title>
+
+    <script type="text/javascript" src="../js/boot.js"></script>
+    <script type="text/javascript">
+        resourceImport('jquery;zui;validate;common;common_ajax;common_logout_dialog;common_dialog;common_form;spinkit', '');
+    </script>
+    <script src="js/page/home.js"></script>
+    <link rel="stylesheet" href="js/dist/css/zui.min.css" />
+    <link rel="stylesheet" href="css/1ts/base.css" />
+    <link rel="stylesheet" href="css/1ts/home.css" />
+</head>
+
+<body>
+    <div id="container">
+        <div id="wrapper">
+            <div id="sidebar">
+                <div style="height:32px; width:100%; padding-top: 5px;">
+                    <div>当前账号：<span id="login-name"></span> <a style="cursor:pointer;" id="logout">退出</a> <a style="cursor:pointer;" id="pwd-reset">修改密码</a></div>
+                </div>
+                <nav class="menu" data-ride="menu" style="width: 200px">
+                    <ul id="treeMenu" class="tree tree-menu" data-ride="tree">
+                        <li><a id="companymanage"><i class="icon icon-location-arrow"></i>公司管理</a></li>
+                        <li><a id="modelmanage"><i class="icon icon-th-large"></i>模块管理</a></li>
+                        <li><a id="menumanage"><i class="icon icon-list-ul"></i>菜单管理</a></li>
+                        <li><a id="versionmanage"><i class="icon icon-book"></i>版本管理</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="main">
+                <div class="bodyIframe">
+                    <div class="navigate">当前位置：<span></span></div>
+                    <div class="body">
+                        <iframe></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改密码 -->
+    <div class="modal fade" id="updatePwdModel">
+        <div class="modal-dialog common-modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header common-modal-header">
+                    <h4 id="title" style="display: inline;" class="modal-title zdy-title-17">修改密码</h4>
+                    <button class="close" type="button" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body common-modal-body" style="overflow-y:scroll">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2">密码</label>
+                            <div class="col-md-9 col-sm-10">
+                                <input id="pwd" name="pwd" type="password" class="form-control" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2">密码确认</label>
+                            <div class="col-md-9 col-sm-10">
+                                <input id="rePwd" name="rePwd" type="password" class="form-control" placeholder="密码确认">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer common-modal-footer">
+                    <button type="button" class="btn btn-primary zdy-btn">确认</button>
+                    <button type="button" class="btn btn-danger zdy-btn" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

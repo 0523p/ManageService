@@ -1,0 +1,66 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile("org.springframework.boot:spring-boot-devtools")
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile group: 'com.github.pagehelper', name: 'pagehelper', version: '5.1.2'
+	compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.3'
+	compile group: 'org.mybatis.generator', name: 'mybatis-generator-core', version: '1.3.5'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.0'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.0'
+	compile group: 'com.alibaba', name: 'druid', version: '1.1.7'
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	//shiro
+	compile group: 'org.apache.shiro', name: 'shiro-spring-boot-web-starter', version: '1.4.0-RC2'
+	compile group: 'org.apache.shiro', name: 'shiro-ehcache', version: '1.4.0-RC2'
+	//ehcache-core
+	compile group: 'net.sf.ehcache', name: 'ehcache-core', version: '2.6.11'
+	compile group: 'org.apache.commons', name: 'commons-compress', version: '1.16.1'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.3.2'
+	compile group: 'org.apache.poi', name: 'poi', version: '3.9'
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.9'
+
+	runtime('mysql:mysql-connector-java')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	/*compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile("org.springframework.boot:spring-boot-devtools")
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile group: 'com.github.pagehelper', name: 'pagehelper', version: '5.1.2'
+	compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.3'
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	//shiro
+	compile group: 'org.apache.shiro', name: 'shiro-spring-boot-web-starter', version: '1.4.0-RC2'
+	compile group: 'org.apache.shiro', name: 'shiro-ehcache', version: '1.4.0-RC2'
+
+	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
+	compile group: 'com.alibaba', name: 'druid', version: '1.1.7'
+	runtime('mysql:mysql-connector-java')*/
+}

@@ -1,0 +1,80 @@
+/*html { height:100%; } 
+body { margin: 0px; padding: 0px; height: 100%; width: 100%; background-color: #e9e7f3; overflow: hidden; }
+
+.topMenu { height: 64px; margin: 0px; padding: 0px; width: 100%; background-color: #29407f; position: fixed; z-index: 9; }
+.topMenu .logo { margin: 0px; width: 388px; float: left; height: 64px; font-size: 24px; font-weight: bold; font-family: '微软雅黑'; color: #FFF; text-align: center; line-height: 64px;  }
+.topMenu .middle { float: left; }
+.topMenu .middle .menuItem { margin:0px; height: 64px; width: 96px; float: left; font-size: 17px; font-family: '微软雅黑'; color: #FFF; text-align: center; line-height: 64px; margin-right: 0px; }
+.topMenu .middle .menuItem:hover {  background-color: #C1DAFE; color: #2963FF; border-bottom: 2px solid #2963FF; height: 64px; cursor: pointer; }
+.topMenu .middle .menuActive { background-color: #C1DAFE; color: #2963FF; border-bottom: 2px solid #2963FF; height: 64px; }
+.topMenu .left { margin: 0px; float: right; width: 430px; height: 64px; color: #FFF; font-size: 14px; }
+.topMenu .left .item { height: 64px; line-height: 64px; }
+.topMenu .left .serverTime { float: left; margin-right: 5px; }
+.topMenu .left .warning { float: left; padding: 0px 8px; margin: 0px 3px; cursor: pointer; }
+.topMenu .left .warning:hover { background-color: #C1DAFE; border-bottom: 2px solid #2963FF; height: 64px; }
+.topMenu .left .radio { float: left; padding: 0px 8px; margin: 0px 3px; cursor: pointer; }
+.topMenu .left .radio:hover { background-color: #C1DAFE; border-bottom: 2px solid #2963FF; height: 64px; }
+.topMenu .left .userInfo { float: left; width: auto; margin: 0px 3px; padding: 0px 0px; }
+
+.topMenu .left .userInfo .photo { float: left; margin-top: 0px; }
+.topMenu .left .userInfo .userName { float: left; }
+
+.topMenu .left .userInfoGroup { border: 0px; }
+.topMenu .left .userInfoGroup:hover { border: 0px; }
+.topMenu .left .userInfoGroup:focus { border: 0px; }
+.topMenu .left .userInfoGroup ul { min-width: 103px; max-width: 103px; border-radius: 0px; }
+.topMenu .left .userInfoGroup ul a { cursor: pointer; }
+.topMenu .left .userInfoGroupBtn { font-family: '微软雅黑'; color: #FFF; border: 0px; height: 64px; margin: 0px; margin-top: -2px; font-weight: normal; text-shadow: 0 0 0 #fff; background-color: #29407f; border-radius: 0px; }
+.topMenu .left .userInfoGroupBtn:hover {  background-color: #C1DAFE; height: 64px; cursor: pointer; border-bottom: 0px solid #2963FF;  }
+.topMenu .submenup { width: 100%; float: left; }
+.topMenu .submenu { position: relative; margin: 0px 10px; }
+.topMenu .submenu { height: 52px; padding: 10px 0px; }
+.topMenu .submenu .menuArray { width: auto; height: 32px; background-color: #FFF; padding-left: 50px; font-size: 16px; }
+.topMenu .submenu .menuArray .menuItem1 { float: left; width: 64px; line-height: 32px; margin-right: 32px; cursor: pointer; }
+.topMenu .submenu .menuArray .menuItem1:hover { height: 30px; border-bottom: 2px solid #2963FF; color: #2963FF; }
+.topMenu .submenu .menuArray .active { height: 30px; border-bottom: 2px solid #2963FF; color: #2963FF; }
+
+
+.bottomBody { width: 100%; position: absolute; top: 116px ; left: 0 ; bottom: 0; }
+.bottomBody iframe { height: 100%; width: 100%; border: 0px; margin: 0px; }
+*/
+html { height:100%; } 
+body { margin: 0px; padding: 0px; height: 100%; width: 100%; background-color: #e9e7f3; overflow: hidden; }
+
+.topMenu { height: 3vw; margin: 0px; padding: 0px; width: 100%; background-color: #29407f; position: fixed; z-index: 9; }
+.topMenu .logo { margin: 0px; width: 21%; float: left; height: 3vw; font-size: 1.4vw; font-weight: bold; font-family: '微软雅黑'; color: #FFF; text-align: center; line-height: 3vw;  }
+.topMenu .middle { float: left; width: 38%; }
+.topMenu .middle .menuItem { margin:0px; height: 3vw; width: 16%; float: left; font-size: 0.9vw; font-family: '微软雅黑'; color: #FFF; text-align: center; line-height: 3vw; margin-right: 0px; }
+.topMenu .middle .menuItem:hover {  background-color: #C1DAFE; color: #2963FF; border-bottom: 2px solid #2963FF; height: 3vw; cursor: pointer; }
+.topMenu .middle .menuActive { background-color: #C1DAFE; color: #2963FF; border-bottom: 2px solid #2963FF; height: 3vw; }
+.topMenu .left { margin: 0px; float: right; width: 30%; height: 3vw; color: #FFF; font-size: 0.7vw; padding-right: 21px; }
+.topMenu .left .item { height: 3vw; line-height: 3vw; }
+.topMenu .left .item img { height: 1vw; }
+.topMenu .left .serverTime { float: left; margin-right: 5px; float: right; }
+.topMenu .left .warning { float: left; padding: 0px 8px; margin: 0px 3px; cursor: pointer; float: right; }
+.topMenu .left .warning:hover { background-color: #C1DAFE; border-bottom: 2px solid #2963FF; height: 3vw; }
+.topMenu .left .radio { float: left; padding: 0px 8px; margin: 0px 3px; cursor: pointer; float: right; }
+.topMenu .left .radio:hover { background-color: #C1DAFE; border-bottom: 2px solid #2963FF; height: 3vw; }
+.topMenu .left .userInfo { float: left; width: auto; margin: 0px 3px; padding: 0px 0px; float: right; }
+.topMenu .left .userInfo .photo { float: left; margin-top: 0px; }
+.topMenu .left .userInfo .userName { float: left; }
+
+.topMenu .left .userInfoGroup { border: 0px; }
+.topMenu .left .userInfoGroup:hover { border: 0px; }
+.topMenu .left .userInfoGroup:focus { border: 0px; }
+.topMenu .left .userInfoGroup ul { min-width: 103px; max-width: 103px; border-radius: 0px; }
+.topMenu .left .userInfoGroup ul a { cursor: pointer; }
+.topMenu .left .userInfoGroupBtn { font-family: '微软雅黑'; color: #FFF; border: 0px; height: 3vw; margin: 0px; margin-top: -2px; font-weight: normal; text-shadow: 0 0 0 #fff; background-color: #29407f; border-radius: 0px; }
+.topMenu .left .userInfoGroupBtn:hover {  background-color: #C1DAFE; height: 3vw; cursor: pointer; border-bottom: 0px solid #2963FF;  }
+
+.topMenu .submenup { width: 100%; float: left; }
+.topMenu .submenu { position: relative; margin: 0px 10px; }
+.topMenu .submenu { height: 52px; padding: 10px 0px; }
+.topMenu .submenu .menuArray { width: auto; height: 32px; background-color: #FFF; padding-left: 50px; font-size: 0.8vw; }
+.topMenu .submenu .menuArray .menuItem1 { float: left; width: auto; line-height: 32px; margin-right: 32px; cursor: pointer; }
+.topMenu .submenu .menuArray .menuItem1:hover { height: 30px; border-bottom: 2px solid #2963FF; color: #2963FF; }
+.topMenu .submenu .menuArray .active { height: 30px; border-bottom: 2px solid #2963FF; color: #2963FF; }
+
+
+.bottomBody { width: 100%; position: absolute; top: 7vw ; left: 0 ; bottom: 0; }
+.bottomBody iframe { height: 100%; width: 100%; border: 0px; margin: 0px; }

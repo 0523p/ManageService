@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ManageService.dao.CompanyInfoMapper">
+    <resultMap id="BaseResultMap" type="com.ManageService.entity.CompanyInfo">
+        <id column="guid" jdbcType="VARCHAR" property="guid" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="phone" jdbcType="VARCHAR" property="phone" />
+        <result column="show_order" jdbcType="INTEGER" property="showOrder" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select guid, name, address, phone, show_order, create_time
+        from company_info
+        order by create_time desc
+    </select>
+
+    <insert id="insert" parameterType="com.ManageService.entity.CompanyInfo">
+        insert into company_info (guid, name, address, phone, show_order, create_time)
+        values (#{guid}, #{name}, #{address}, #{phone}, #{showOrder}, #{createTime})
+    </insert>
+
+    <update id="update" parameterType="com.ManageService.entity.CompanyInfo">
+        update company_info
+        set name = #{name},
+        address = #{address},
+        phone = #{phone},
+        show_order = #{showOrder}
+        where guid = #{guid}
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from company_info where guid = #{guid}
+    </delete>
+</mapper>

@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: db
+    url: jdbc:mysql://127.0.0.1:3306/zhangpeng?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: wl2018!
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+  # thymeleaf
+  thymeleaf:
+    prefix: "classpath:/templates/"
+    suffix: ".html"
+    mode: HTML
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+
+mybatis:
+  mapperLocations: classpath:mapping/*.xml
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  pageSizeZero: true
+  params: count=countSql
+
+info:
+  manage:
+    uploadPath: /resource/picture

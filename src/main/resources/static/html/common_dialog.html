@@ -1,0 +1,75 @@
+<!-- <div id="Common_Dialog" class="modal fade">
+  <div class="modal-dialog common-modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header common-modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+        <h4 class="modal-title" id="modal-title">标题</h4>
+      </div>
+      <div class="modal-body">
+        <p id="p">
+          <div class="sk-wave-c">
+            <div class="sk-rect-c sk-rect1-c"></div><div class="sk-rect-c sk-rect2-c"></div><div class="sk-rect-c sk-rect3-c"></div><div class="sk-rect-c sk-rect4-c"></div><div class="sk-rect-c sk-rect5-c"></div>
+          </div>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default common-btn" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary common-btn">保存</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- 模态框HTML弹出层 挂起 -->
+<div class="modal fade" id="Common_Dialog">
+    <div class="modal-dialog common-modal-dialog" style="width: 530px; z-index: 99998;">
+        <div class="modal-content">
+            <div class="modal-header common-modal-header">
+                <h4 id="title" style="display:inline;"  class="modal-title zdy-title-17"></h4>
+                 <button class="close" type="button" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body common-modal-body" style="min-height: 102px;">
+                <div id="info">
+                    <!-- <span id="queryTxt"></span> -->
+                    <div class="alert alert-primary with-icon common-t" style="margin-bottom: 0px;">
+                        <i class="icon-question-sign"></i>
+                        <div class="content">
+                            <h4 id="queryTxt"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="wait" style="text-align: center; display: none;">
+                    <p>
+                        <div class="sk-wave-c">
+                            <div class="sk-rect-c sk-rect1-c"></div><div class="sk-rect-c sk-rect2-c"></div><div class="sk-rect-c sk-rect3-c"></div><div class="sk-rect-c sk-rect4-c"></div><div class="sk-rect-c sk-rect5-c"></div>
+                        </div>
+                    </p>
+                    <p>
+                        <span id="waitingTxt"></span>
+                    </p>
+                </div>
+                <div id="suc" style="display: none;">
+                    <div class="alert alert-success with-icon common-t" style="margin-bottom: 0px;">
+                        <i class="icon-ok-sign"></i>
+                        <div class="content">
+                            <h4 id="resultSucTxt"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="fail" style="display: none;">
+                    <div class="alert alert-danger with-icon common-t" style="margin-bottom: 0px;">
+                        <i class="icon-remove-sign"></i>
+                        <div class="content">
+                            <h4 id="resultFailTxt"></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer common-modal-footer">
+                <button id="btn1" type="button" class="btn btn-primary zdy-btn"></button>
+                <button id="btn2" type="button" class="btn btn-primary zdy-btn" data-dismiss="modal"></button>
+                <button id="btn3" type="button" class="btn btn-danger zdy-btn" data-dismiss="modal"></button>
+                <button id="btn4" type="button" class="btn btn-danger zdy-btn" data-dismiss="modal"></button>
+            </div>
+        </div>
+    </div>
+</div>
