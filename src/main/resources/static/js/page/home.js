@@ -8,10 +8,10 @@ $(function() {
         var id = $(this).attr('id');
         switch (id) {
             case 'companymanage':
-                $('.navigate span').html('代理管理');
+                $('.navigate span').html('公司管理');
                 break;
-            case 'modelmanage':
-                $('.navigate span').html('模块管理');
+            case 'picturemanage':
+                $('.navigate span').html('轮播管理');
                 break;
             case 'menumanage':
                 $('.navigate span').html('菜单管理');

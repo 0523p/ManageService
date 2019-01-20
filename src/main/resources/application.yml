@@ -22,8 +22,14 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+  servlet:
+    multipart:
+      max-file-size: -1
+  http:
+    multipart:
+      max-request-size: -1
 
-  # thymeleaf
+# thymeleaf
   thymeleaf:
     prefix: "classpath:/templates/"
     suffix: ".html"
@@ -43,4 +49,4 @@ pagehelper:
 
 info:
   manage:
-    uploadPath: /resource/picture
+    uploadPath: D:\opt
