@@ -11,4 +11,6 @@ public interface MenuPictureEntityMapper {
     int insert(MenuPictureEntity record);
 
     List<FileEntity> selectAll(Map<String, String> params);
+
+    int deleteByPictureId(String pictureId);
 }

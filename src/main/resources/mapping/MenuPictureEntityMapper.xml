@@ -22,4 +22,8 @@
     where t1.menu = #{menu}
   </select>
 
+  <delete id="deleteByPictureId" parameterType="java.lang.String">
+    delete from menu_picture where picture_id = #{pictureId,jdbcType=VARCHAR}
+  </delete>
+
 </mapper>

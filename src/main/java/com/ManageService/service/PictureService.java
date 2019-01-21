@@ -8,7 +8,9 @@ import com.ManageService.entity.MenuPictureEntity;
 import com.ManageService.model.ResultModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +24,11 @@ public class PictureService {
     @Autowired
     private MenuPictureEntityMapper menuPictureEntityMapper;
 
-
+    /**
+     * 添加图片
+     * @param params
+     * @return
+     */
     public ResultModel insertMenuImage(Map<String,Object> params) {
         String fileId = params.get("fileId").toString();
         FileEntity fileEntity = fileEntityMapper.selectByPrimaryKey(fileId);
@@ -41,6 +47,30 @@ public class PictureService {
         return new ResultModel(ResultModel.STATUS.OK,"",null);
     }
 
+    /**
+     * 删除图片接口
+     * @param fileId
+     * @return
+     */
+    @Transactional
+    public ResultModel deletePic(String fileId) {
+        FileEntity fileEntity = fileEntityMapper.selectByPrimaryKey(fileId);
+        File file = new File(fileEntity.getPath());
+        //删除存储在服务器上的图片文件
+        if (file.delete()) {
+            fileEntityMapper.deleteByPrimaryKey(fileId);
+            menuPictureEntityMapper.deleteByPictureId(fileId);
+            return new ResultModel(ResultModel.STATUS.OK,"删除成功","");
+        }else {
+            return new ResultModel(ResultModel.STATUS.ERROR,"删除失败","");
+        }
+    }
+
+    /**
+     * 选出属于该菜单的图片信息
+     * @param params
+     * @return
+     */
     public List<FileEntity> selectAll(Map<String, String> params) {
         return menuPictureEntityMapper.selectAll(params);
     }

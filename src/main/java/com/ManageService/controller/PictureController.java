@@ -55,11 +55,16 @@ public class PictureController {
         return CommonTools.objectToJson(pager);
     }
 
+    /**
+     * 删除图片接口
+     * @param request
+     * @return
+     */
     @RequestMapping("/deletePicture")
     public String deletePicture(HttpServletRequest request) {
-        String formData = request.getParameter("id");
-
-        return "";
+        String fileId = request.getParameter("id");
+        ResultModel resultModel = pictureService.deletePic(fileId);
+        return CommonTools.objectToJson(resultModel);
     }
 
 }

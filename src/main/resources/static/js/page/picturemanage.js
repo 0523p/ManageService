@@ -100,12 +100,12 @@ function initDatatables() {
 
 function deletePicture(id) {
     $.CommonDialog({
-        url: '/picture/delete',
+        url: '/picture/deletePicture',
         data: {id : id},
         isFailAutoClose: true,
         queryTxt: '确认删除该图片吗？',
         sucCallBack: function() {
-            companyTable.ajax.reload(null, false);
+            pictureTable.ajax.reload(null, false);
         }
     }).showDlg();
 }
