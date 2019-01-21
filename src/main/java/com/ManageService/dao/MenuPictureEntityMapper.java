@@ -1,14 +1,14 @@
 package com.ManageService.dao;
 
+import com.ManageService.entity.FileEntity;
 import com.ManageService.entity.MenuPictureEntity;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MenuPictureEntityMapper {
-    int deleteByPrimaryKey(Long id);
 
     int insert(MenuPictureEntity record);
 
-    MenuPictureEntity selectByPrimaryKey(Long id);
-
+    List<FileEntity> selectAll(Map<String, String> params);
 }

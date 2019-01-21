@@ -66,7 +66,7 @@ public class FileService {
 
                 //
                 MultipartFile multipartFile = multipartRequest.getFile(fileName);
-                String origName = multipartFile.getOriginalFilename();
+                String origName = multipartFile.getOriginalFilename();//"aaa.dat"
                 String type = multipartFile.getContentType();
                 String path = systemConfiguration.getUploadPath();
                 Date curDate = new Date();
@@ -78,6 +78,8 @@ public class FileService {
                 if (!bufDir.exists())
                     bufDir.mkdir();
                 String tagName = bufDir + File.separator + fileUUID + ".dat";
+                //修改为直接以原始文件后缀命名
+                //String tagName = bufDir + File.separator + fileUUID + origName.substring(origName.lastIndexOf("."));
 
                 //
                 outputStream = new BufferedOutputStream(new FileOutputStream(new File(tagName)));

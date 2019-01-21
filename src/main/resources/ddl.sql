@@ -21,13 +21,11 @@ CREATE TABLE `company_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公司信息，在联系我们页面展示';
 
 CREATE TABLE IF NOT EXISTS `menu_picture` (
-  `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `MENU` varchar(32) NOT NULL COMMENT '菜单名称',
-  `SEQUENCE` int(10) NOT NULL COMMENT '图片位置',
-  `PICTURE` text NOT NULL COMMENT '图片路径',
-  `CREATE_TIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `UPDATE_TIME` timestamp NOT NULL COMMENT '更新时间',
-  PRIMARY KEY (`ID`)
+  `guid` varchar(32) NOT NULL COMMENT '唯一索引',
+  `menu` varchar(32) NOT NULL COMMENT '菜单名称',
+  `picture_id` varchar(32) NOT NULL COMMENT '图片ID',
+  `create_time` datetime NOT NULL COMMENT '激活时间',
+  PRIMARY KEY (`guid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单对应的图片表';
 
 CREATE TABLE IF NOT EXISTS `t_file` (
