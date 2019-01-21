@@ -1,14 +1,16 @@
+var menu = 'informationCenter';
 $(function() {
 
-    initDatatables('informationCenter');
+    initDatatables(menu);
 
     $('.resetbtn').click(function() {
-        initDatatables('informationCenter');
+        initDatatables(menu);
     })
 
     $('#btn-form .btn').bind('click', function() {
         $('#select-btn').html($(this).attr('name'));
-        initDatatables($(this).attr('data'));
+        menu = $(this).attr('data');
+        initDatatables();
     });
 
     $('#newPic').bind('click', function() {
@@ -34,10 +36,10 @@ $(function() {
                     height: 250
                 },
                 oper: {
-                    url: '/file/uploadPic',
+                    url: '/picture/uploadPic',
                     beforeSubmit: function(params) {
                         params.fileId = versionFileInfo.id;
-                        params.menu = 'xinxizhongxin';
+                        params.menu = menu;
                         return params;
                     },
                     success: function() {
@@ -55,7 +57,7 @@ $(function() {
 });
 
 var pictureTable = {};
-function initDatatables(menu) {
+function initDatatables() {
     pictureTable = $('#pictureList').CommonDataTables({
         dom: 'rtlip',
         ajaxSource: '/picture/selectAll',
