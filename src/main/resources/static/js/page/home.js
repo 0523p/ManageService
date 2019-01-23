@@ -13,8 +13,8 @@ $(function() {
             case 'picturemanage':
                 $('.navigate span').html('轮播管理');
                 break;
-            case 'menumanage':
-                $('.navigate span').html('菜单管理');
+            case 'noticemanage':
+                $('.navigate span').html('小区公告发布');
                 break;
         }
         $('#main .bodyIframe .body iframe').attr('src', '/change?page=' + id);

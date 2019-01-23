@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ManageService.dao.VillageNoticeMapper">
+    <resultMap id="BaseResultMap" type="com.ManageService.entity.VillageNotice">
+        <id column="guid" jdbcType="VARCHAR" property="guid" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="owner" jdbcType="VARCHAR" property="owner" />
+        <result column="pdf" jdbcType="VARCHAR" property="pdf" />
+        <result column="fileid" jdbcType="VARCHAR" property="fileid" />
+        <result column="flag" jdbcType="VARCHAR" property="flag" />
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select *
+        from village_notice
+        where flag = '0'
+        order by create_time desc
+    </select>
+    <select id="selectByKey" resultMap="BaseResultMap">
+        select *
+        from village_notice
+        where guid = #{guid}
+    </select>
+    <insert id="insert" parameterType="com.ManageService.entity.VillageNotice">
+        insert into village_notice (guid, title, description, create_time, owner, pdf, fileid,flag)
+        values (#{guid}, #{title}, #{description}, #{createTime}, #{owner}, #{pdf},#{fileid}, #{flag})
+    </insert>
+
+    <update id="update" parameterType="com.ManageService.entity.VillageNotice">
+        update company_info
+        set name = #{name},
+        address = #{address},
+        phone = #{phone},
+        show_order = #{showOrder}
+        where guid = #{guid}
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from village_notice where guid = #{guid}
+    </delete>
+</mapper>

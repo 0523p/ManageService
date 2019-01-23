@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>Smart System</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <script type="text/javascript" src="../js/boot.js"></script>
+    <script type="text/javascript">
+        resourceImport('jquery;datatable11015;zui;validate;zTree;common;common_css;common_dialog;common_ajax;common_form;spinkit;moment;chosen;daterangepicker;echarts;zui-uploader;common_fileupload', '../');
+    </script>
+    <script type="text/javascript" src="../js/page/noticemanage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common/common_subhtml.css">
+    <link rel="stylesheet" type="text/css" href="../css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/page/biz_user_user.css">
+<body>
+    <div class="outer">
+        <div class="dataDiv">
+            <div>
+                <div class="title">
+                    <div class="left"><span>小区信息公告发布栏</span></div>
+                    <div class="right">
+                        <button class="resetbtn" title="刷新列表"><img src="../image/reset.png"></button>
+                        <button class="btn btn-primary zdy-btn" type="button" id="newNotice">添加</button>
+                    </div>
+                </div>
+                <div class="middleDiv">
+                    <table id="noticeList" class="table table-bordered table-hover dataTable no-footer" style="width: 100%;" role="grid" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width: 48px;">序号</th>
+                                <th>公告标题</th>
+                                <th>公告简介</th>
+                                <th>发布人</th>
+                                <th>PDF文件</th>
+                                <th>创建时间</th>
+                                <th style="width: 230px;">操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addNoticeModel">
+            <div class="modal-dialog common-modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header common-modal-header">
+                        <h4 id="title1" style="display: inline;" class="modal-title">添加小区公告</h4>
+                        <button class="close" type="button" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body common-modal-body" style="overflow-y:scroll">
+                        <form class="form-horizontal" id="myForm">
+                            <div class="form-group">
+                                <label class="col-sm-2">公告标题</label>
+                                <div class="col-md-9 col-sm-10">
+                                    <input id="title" class="form-control" name="title" placeholder="公告标题">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2">公告简介</label>
+                                <div class="col-md-9 col-sm-10">
+                                    <input id="description" class="form-control" name="description" placeholder="公告简介">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2">发布人</label>
+                                <div class="col-md-9 col-sm-10">
+                                    <input id="owner" class="form-control" name="owner" placeholder="发布人">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2">PDF文件</label>
+                                <div class="col-md-9 col-sm-10">
+                                    <input id="file" class="form-control" name="file" placeholder="请点击上传" readonly="readonly" style="background: #fff">
+                                </div>
+                                <label class="col-sm-2"></label>
+                                <div id="uploaderExample" class="uploader col-md-9 col-sm-10">
+                                    <div class="file-list" data-drag-placeholder="请拖拽文件到此处"></div>
+                                    <button type="button" class="btn btn-primary uploader-btn-browse">
+                                        <i class="icon icon-cloud-upload"></i>选择文件</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer common-modal-footer">
+                        <button type="button" class="btn btn-primary">确认</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
