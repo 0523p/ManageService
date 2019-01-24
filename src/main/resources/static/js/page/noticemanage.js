@@ -107,17 +107,17 @@ function initDatatables() {
 
 function updateInfo(guid) {
         $('.uploader-btn-browse').attr('disabled', false);
-            var uploader = $('#uploaderExample').data('zui.uploader');
+            var uploader = $('#uploaderExample1').data('zui.uploader');
             if (uploader != null) {
-                $('#uploaderExample .file-list').html('');
+                $('#uploaderExample1 .file-list').html('');
                 uploader.destroy();
             }
-            $('#uploaderExample').CommonFileUpload({
+            $('#uploaderExample1').CommonFileUpload({
                 autoUpload: true, // 当选择文件后立即自动进行上传操作
                 max_retries: 0,
                 deleteActionOnDone: true,
-                uploadComplete: uploadComplete,
-                filesRemoved: filesRemoved,
+                uploadComplete: uploadCompleteUpdate,
+                filesRemoved: filesRemovedUpdate,
                 filters: {
                     // 最大上传文件为 10MB
                     max_file_size: '10MB',
@@ -155,6 +155,9 @@ function updateInfo(guid) {
 
     var rowData = noticeTable.row($('#' + guid).parent()).data();
     $.each(rowData, function(key, value) {
+    if(key == "file") {
+            $('#updateNoticeModel #' + "file1").val(value);
+    }
         $('#updateNoticeModel #' + key).val(value);
     });
 }
@@ -210,9 +213,20 @@ var noticeValidateForm = {
         $('#file').trigger('change');
         $('.uploader-btn-browse').attr('disabled', true);
     }
+    function uploadCompleteUpdate(file) {
+        versionFileInfo = file;
+        $('#file1').val(file.name);
+        $('#file1').trigger('change');
+        $('.uploader-btn-browse').attr('disabled', true);
+    }
 
     function filesRemoved(file) {
-        $('#file').val('');
+        $('#file1').val('');
+        versionFileInfo = null;
+        $('.uploader-btn-browse').attr('disabled', false);
+    }
+    function filesRemovedUpdate(file) {
+        $('#file1').val('');
         versionFileInfo = null;
         $('.uploader-btn-browse').attr('disabled', false);
     }

@@ -34,7 +34,9 @@
         set title = #{title},
         description = #{description},
         owner = #{owner},
+        <if test="pdf != null and pdf != ''">
         pdf = #{pdf},
+        </if>
         file = #{file},
         fileid = #{fileid},
         flag = #{flag}

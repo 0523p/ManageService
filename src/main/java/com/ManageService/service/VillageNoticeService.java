@@ -59,7 +59,11 @@ public class VillageNoticeService {
         String fileId = params.get("pdf");
         FileEntity fileEntity = fileEntityMapper.selectByPrimaryKey(fileId);
         notice.setFileid(fileId);
-        notice.setPdf(fileEntity.getPath());
+        if(fileEntity == null) {
+            notice.setPdf(null);
+        }else {
+            notice.setPdf(fileEntity.getPath());
+        }
         notice.setFile(params.get("file"));
         notice.setGuid(params.get("guid"));
         notice.setFlag("0");
