@@ -46,9 +46,9 @@ public class VillageNoticeController {
         String formData = request.getParameter("formData");
         Map<String,String> params = CommonTools.jsonToObject(formData,Map.class);
         if (noticeService.updateNotice(params)){
-            return CommonTools.objectToJson(new ResultModel(ResultModel.STATUS.OK, "添加成功", ""));
+            return CommonTools.objectToJson(new ResultModel(ResultModel.STATUS.OK, "更新成功", ""));
         }
-        return CommonTools.objectToJson(new ResultModel(ResultModel.STATUS.OK, "添加失败", ""));
+        return CommonTools.objectToJson(new ResultModel(ResultModel.STATUS.OK, "更新失败", ""));
     }
     /**
      * 删除小区信息栏信息
