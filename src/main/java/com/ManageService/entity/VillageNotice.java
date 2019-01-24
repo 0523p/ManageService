@@ -15,9 +15,19 @@ public class VillageNotice {
 
     private String pdf;
 
+    private String file;
+
     private String fileid;
 
     private String flag;
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
 
     public String getFileid() {
         return fileid;

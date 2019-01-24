@@ -8,6 +8,7 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
         <result column="owner" jdbcType="VARCHAR" property="owner" />
         <result column="pdf" jdbcType="VARCHAR" property="pdf" />
+        <result column="file" jdbcType="VARCHAR" property="file" />
         <result column="fileid" jdbcType="VARCHAR" property="fileid" />
         <result column="flag" jdbcType="VARCHAR" property="flag" />
     </resultMap>
@@ -24,8 +25,8 @@
         where guid = #{guid}
     </select>
     <insert id="insert" parameterType="com.ManageService.entity.VillageNotice">
-        insert into village_notice (guid, title, description, create_time, owner, pdf, fileid,flag)
-        values (#{guid}, #{title}, #{description}, #{createTime}, #{owner}, #{pdf},#{fileid}, #{flag})
+        insert into village_notice (guid, title, description, create_time, owner, pdf,file, fileid,flag)
+        values (#{guid}, #{title}, #{description}, #{createTime}, #{owner}, #{pdf}, #{file}, #{fileid}, #{flag})
     </insert>
 
     <update id="update" parameterType="com.ManageService.entity.VillageNotice">

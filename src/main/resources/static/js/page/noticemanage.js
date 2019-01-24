@@ -19,7 +19,7 @@ $(function() {
                 uploadComplete: uploadComplete,
                 filesRemoved: filesRemoved,
                 filters: {
-                    // 最大上传文件为 1MB
+                    // 最大上传文件为 10MB
                     max_file_size: '10MB',
                 }
             });
@@ -97,7 +97,7 @@ function initDatatables() {
             { data: 'title' },
             { data: 'description' },
             { data: 'owner' },
-            { data: 'pdf' },
+            { data: 'file' },
             { data: 'createTime' },
             { data: null }
         ],
@@ -106,6 +106,24 @@ function initDatatables() {
 }
 
 function updateInfo(guid) {
+        $('.uploader-btn-browse').attr('disabled', false);
+            var uploader = $('#uploaderExample').data('zui.uploader');
+            if (uploader != null) {
+                $('#uploaderExample .file-list').html('');
+                uploader.destroy();
+            }
+            $('#uploaderExample').CommonFileUpload({
+//            $('file').val() = "";
+                autoUpload: true, // 当选择文件后立即自动进行上传操作
+                max_retries: 0,
+                deleteActionOnDone: true,
+                uploadComplete: uploadComplete,
+                filesRemoved: filesRemoved,
+                filters: {
+                    // 最大上传文件为 10MB
+                    max_file_size: '10MB',
+                }
+            });
     var options = {
         div: {
             width: 500,
@@ -116,25 +134,27 @@ function updateInfo(guid) {
             url: '/company/update',
             autoClose: true,
             beforeSubmit: function(params) {
-                params.guid = guid;
-                params.showOrder = parseInt(params.showOrder);
-                return params;
+            try{
+                params.pdf = versionFileInfo.id;
+            }
+                params.pdf = versionFileInfo.id;
+                    return params;
             },
             success: function() {
-                companyTable.ajax.reload(null, false);
+                noticeTable.ajax.reload(null, false);
             }
         },
         txt: {
-            titleTxt: '修改公司信息',
+            titleTxt: '修改公告栏信息',
             queryTxt: '确认修改吗？'
         },
-        validate: companyValidateForm
+        validate: noticeValidateForm
     };
-    $('#updateCompanyModel').commonFormDialog(options);
+    $('#updateNoticeModel').commonFormDialog(options);
 
-    var rowData = companyTable.row($('#' + guid).parent()).data();
+    var rowData = noticeTable.row($('#' + guid).parent()).data();
     $.each(rowData, function(key, value) {
-        $('#updateCompanyModel #' + key).val(value);
+        $('#updateNoticeModel #' + key).val(value);
     });
 }
 

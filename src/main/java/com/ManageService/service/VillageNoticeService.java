@@ -35,6 +35,7 @@ public class VillageNoticeService {
         FileEntity fileEntity = fileEntityMapper.selectByPrimaryKey(fileId);
         notice.setFileid(fileId);
         notice.setPdf(fileEntity.getPath());
+        notice.setFile(params.get("file"));
         notice.setGuid(CommonTools.getUUID32());
         notice.setCreateTime(new Date());
         notice.setFlag("0");
