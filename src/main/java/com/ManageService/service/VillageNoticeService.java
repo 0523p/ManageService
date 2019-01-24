@@ -47,6 +47,30 @@ public class VillageNoticeService {
     }
 
     /**
+     * 更新小区信息公告
+     * @param params
+     * @return
+     */
+    public boolean updateNotice(Map<String,String> params) {
+        VillageNotice notice = new VillageNotice();
+        notice.setTitle(params.get("title"));
+        notice.setDescription(params.get("description"));
+        notice.setOwner(params.get("owner"));
+        String fileId = params.get("pdf");
+        FileEntity fileEntity = fileEntityMapper.selectByPrimaryKey(fileId);
+        notice.setFileid(fileId);
+        notice.setPdf(fileEntity.getPath());
+        notice.setFile(params.get("file"));
+        notice.setGuid(params.get("guid"));
+        notice.setFlag("0");
+        if (villageNoticeMapper.update(notice) == 1) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    /**
      * 选出小区信息栏信息
      * @return
      */

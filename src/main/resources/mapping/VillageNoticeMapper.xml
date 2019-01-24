@@ -30,11 +30,14 @@
     </insert>
 
     <update id="update" parameterType="com.ManageService.entity.VillageNotice">
-        update company_info
-        set name = #{name},
-        address = #{address},
-        phone = #{phone},
-        show_order = #{showOrder}
+        update village_notice
+        set title = #{title},
+        description = #{description},
+        owner = #{owner},
+        pdf = #{pdf},
+        file = #{file},
+        fileid = #{fileid},
+        flag = #{flag}
         where guid = #{guid}
     </update>
 

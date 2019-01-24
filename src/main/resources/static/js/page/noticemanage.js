@@ -113,7 +113,6 @@ function updateInfo(guid) {
                 uploader.destroy();
             }
             $('#uploaderExample').CommonFileUpload({
-//            $('file').val() = "";
                 autoUpload: true, // 当选择文件后立即自动进行上传操作
                 max_retries: 0,
                 deleteActionOnDone: true,
@@ -131,14 +130,16 @@ function updateInfo(guid) {
             needReset: false,
         },
         oper: {
-            url: '/company/update',
+            url: '/notice/updateNotice',
             autoClose: true,
             beforeSubmit: function(params) {
             try{
                 params.pdf = versionFileInfo.id;
+            }catch(e) {
+                params.pdf = "";
             }
-                params.pdf = versionFileInfo.id;
-                    return params;
+            params.guid = guid;
+                return params;
             },
             success: function() {
                 noticeTable.ajax.reload(null, false);

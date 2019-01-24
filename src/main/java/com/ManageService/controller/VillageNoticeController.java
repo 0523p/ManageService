@@ -21,6 +21,11 @@ public class VillageNoticeController {
     @Autowired
     private VillageNoticeService noticeService;
 
+    /**
+     * 添加小区信息公告
+     * @param request
+     * @return
+     */
     @RequestMapping("/addNotice")
     public String addNotice(HttpServletRequest request) {
         String formData = request.getParameter("formData");
@@ -31,6 +36,20 @@ public class VillageNoticeController {
         return CommonTools.objectToJson(new ResultModel(ResultModel.STATUS.OK, "添加失败", ""));
     }
 
+    /**
+     * 更新小区信息公告
+     * @param request
+     * @return
+     */
+    @RequestMapping("/updateNotice")
+    public String updateNotice(HttpServletRequest request) {
+        String formData = request.getParameter("formData");
+        Map<String,String> params = CommonTools.jsonToObject(formData,Map.class);
+        if (noticeService.updateNotice(params)){
+            return CommonTools.objectToJson(new ResultModel(ResultModel.STATUS.OK, "添加成功", ""));
+        }
+        return CommonTools.objectToJson(new ResultModel(ResultModel.STATUS.OK, "添加失败", ""));
+    }
     /**
      * 删除小区信息栏信息
      * @param request
