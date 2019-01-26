@@ -40,15 +40,14 @@ CREATE TABLE IF NOT EXISTS `t_file` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='上传文件管理';
 
-CREATE TABLE IF NOT EXISTS `village_notice` (
+CREATE TABLE IF NOT EXISTS `menu_notice` (
   `guid` varchar(32) NOT NULL COMMENT '唯一索引',
+  `menu` varchar(32) NOT NULL COMMENT '菜单名称',
+  `file_id` varchar(32) NOT NULL COMMENT '文件ID',
   `title` varchar(50) NOT NULL COMMENT '公告标题',
   `description` text NOT NULL COMMENT '公告简介',
+  `work_unit` text NOT NULL COMMENT '发布单位',
   `create_time` datetime NOT NULL COMMENT '创建时间',
-  `owner` varchar(32) NOT NULL COMMENT '创建人',
-  `pdf` text COMMENT '公告文件存储路径',
-  `file` text COMMENT '传输上来的文件名',
-  `fileid` varchar(32) DEFAULT NULL COMMENT 'pdf文件ID',
-  `flag` varchar(2) NOT NULL COMMENT '删除标识(0 - 未删除， 1-删除)',
+  `update_time` datetime COMMENT '更新时间',
   PRIMARY KEY (`guid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='小区公告信息表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公告信息表';

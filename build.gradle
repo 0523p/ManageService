@@ -48,19 +48,4 @@ dependencies {
 
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	/*compile('org.springframework.boot:spring-boot-starter-jdbc')
-	compile("org.springframework.boot:spring-boot-devtools")
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-aop')
-	compile group: 'com.github.pagehelper', name: 'pagehelper', version: '5.1.2'
-	compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.3'
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	//shiro
-	compile group: 'org.apache.shiro', name: 'shiro-spring-boot-web-starter', version: '1.4.0-RC2'
-	compile group: 'org.apache.shiro', name: 'shiro-ehcache', version: '1.4.0-RC2'
-
-	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
-	compile group: 'com.alibaba', name: 'druid', version: '1.1.7'
-	runtime('mysql:mysql-connector-java')*/
 }

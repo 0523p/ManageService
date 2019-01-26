@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ManageService.dao.NoticeMapper">
+    <resultMap id="BaseResultMap" type="com.ManageService.entity.VillageNotice">
+        <id column="guid" jdbcType="VARCHAR" property="guid" />
+        <result column="menu" jdbcType="VARCHAR" property="menu" />
+        <result column="file_id" jdbcType="VARCHAR" property="fileId" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="work_unit" jdbcType="VARCHAR" property="workUnit" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select t1.guid, t1.menu, t1.file_id, t1.title, t1.description, t1.work_unit, t1.create_time, t1.update_time, t2.name as file_name
+        from menu_notice t1, t_file t2
+        where t1.file_id = t2.id
+        and menu = #{menu}
+        order by create_time desc
+    </select>
+
+    <insert id="insert" parameterType="com.ManageService.entity.VillageNotice">
+        insert into menu_notice (guid, menu, file_id, title, description, work_unit, create_time, update_time)
+        values (#{guid}, #{menu}, #{fileId}, #{title}, #{description}, #{workUnit}, #{createTime}, #{updateTime})
+    </insert>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from menu_notice where guid = #{guid}
+    </delete>
+
+    <update id="update" parameterType="com.ManageService.entity.VillageNotice">
+        update menu_notice
+        set menu = #{menu},
+        title = #{title},
+        description = #{description},
+        work_unit = #{workUnit},
+        <if test="fileId != null and fileId != ''">
+            file_id = #{fileId},
+        </if>
+        update_time = #{updateTime}
+        where guid = #{guid}
+    </update>
+</mapper>

@@ -2,7 +2,7 @@ package com.ManageService.service;
 
 import com.ManageService.common.CommonTools;
 import com.ManageService.dao.FileEntityMapper;
-import com.ManageService.dao.MenuPictureEntityMapper;
+import com.ManageService.dao.PictureEntityMapper;
 import com.ManageService.entity.FileEntity;
 import com.ManageService.entity.MenuPictureEntity;
 import com.ManageService.model.ResultModel;
@@ -22,7 +22,7 @@ public class PictureService {
     private FileEntityMapper fileEntityMapper;
 
     @Autowired
-    private MenuPictureEntityMapper menuPictureEntityMapper;
+    private PictureEntityMapper pictureEntityMapper;
 
     /**
      * 添加图片
@@ -35,13 +35,12 @@ public class PictureService {
         if (fileEntity == null) {
             return new ResultModel(ResultModel.STATUS.ERROR,"添加图片失败",null);
         }
-        String imagePath = fileEntity.getPath();
         MenuPictureEntity menuPictureEntity = new MenuPictureEntity();
         menuPictureEntity.setGuid(CommonTools.getUUID32());
         menuPictureEntity.setMenu(params.get("menu").toString());
         menuPictureEntity.setPictureId(fileId);
         menuPictureEntity.setCreateTime(new Date());
-        if (menuPictureEntityMapper.insert(menuPictureEntity) != 1){
+        if (pictureEntityMapper.insert(menuPictureEntity) != 1){
             return new ResultModel(ResultModel.STATUS.ERROR,"添加图片失败",null);
         }
         return new ResultModel(ResultModel.STATUS.OK,"",null);
@@ -59,7 +58,7 @@ public class PictureService {
         //删除存储在服务器上的图片文件
         if (file.delete()) {
             fileEntityMapper.deleteByPrimaryKey(fileId);
-            menuPictureEntityMapper.deleteByPictureId(fileId);
+            pictureEntityMapper.deleteByPictureId(fileId);
             return new ResultModel(ResultModel.STATUS.OK,"删除成功","");
         }else {
             return new ResultModel(ResultModel.STATUS.ERROR,"删除失败","");
@@ -72,7 +71,7 @@ public class PictureService {
      * @return
      */
     public List<FileEntity> selectAll(Map<String, String> params) {
-        return menuPictureEntityMapper.selectAll(params);
+        return pictureEntityMapper.selectAll(params);
     }
 
 }

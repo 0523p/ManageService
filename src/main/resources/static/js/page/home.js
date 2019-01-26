@@ -2,19 +2,46 @@ $(function() {
 
     gettSystemUser();
 
+    $('#main .bodyIframe .body iframe').attr('src', '/change?page=companymanage');
+    $('.navigate span').html('公司管理');
+
     $('#treeMenu').on('click', 'a', function () {
         $('#treeMenu li.active').removeClass('active');
         $(this).closest('li').addClass('active');
         var id = $(this).attr('id');
+        if (id == 'picturemanage' || id == 'noticemanage') {
+            return;
+        }
         switch (id) {
             case 'companymanage':
                 $('.navigate span').html('公司管理');
                 break;
-            case 'picturemanage':
-                $('.navigate span').html('轮播管理');
+            case 'pic_information_center':
+                $('.navigate span').html('信息中心');
                 break;
-            case 'noticemanage':
-                $('.navigate span').html('小区公告发布');
+            case 'pic_bulletin_bar':
+                $('.navigate span').html('公告公示栏');
+                break;
+            case 'pic_village_info':
+                $('.navigate span').html('小区信息栏');
+                break;
+            case 'pic_contact_us':
+                $('.navigate span').html('联系我们');
+                break;
+            case 'notice_village_info':
+                $('.navigate span').html('小区信息栏');
+                break;
+            case 'notice_housing_authority':
+                $('.navigate span').html('房管局');
+                break;
+            case 'notice_street_ommunity':
+                $('.navigate span').html('街道社区');
+                break;
+            case 'notice_industry_council':
+                $('.navigate span').html('业委会');
+                break;
+            case 'notice_property':
+                $('.navigate span').html('物业');
                 break;
         }
         $('#main .bodyIframe .body iframe').attr('src', '/change?page=' + id);

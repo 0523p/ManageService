@@ -3,10 +3,11 @@ package com.ManageService.dao;
 import com.ManageService.entity.VillageNotice;
 
 import java.util.List;
+import java.util.Map;
 
-public interface VillageNoticeMapper {
+public interface NoticeMapper {
 
-    List<VillageNotice> selectAll();
+    List<VillageNotice> selectAll(Map<String, String> params);
 
     VillageNotice selectByKey(String guid);
 

@@ -6,7 +6,7 @@ import com.ManageService.entity.MenuPictureEntity;
 import java.util.List;
 import java.util.Map;
 
-public interface MenuPictureEntityMapper {
+public interface PictureEntityMapper {
 
     int insert(MenuPictureEntity record);
 

@@ -1,64 +1,57 @@
-var menu = 'informationCenter';
+var menu = 'bulletinBar';
 $(function() {
-
     initDatatables(menu);
 
     $('.resetbtn').click(function() {
         initDatatables(menu);
     })
 
-    $('#btn-form .btn').bind('click', function() {
-        $('#select-btn').html($(this).attr('name'));
-        menu = $(this).attr('data');
-        initDatatables();
-    });
-
     $('#newPic').bind('click', function() {
         $('.uploader-btn-browse').attr('disabled', false);
-            var uploader = $('#uploaderExample').data('zui.uploader');
-            if (uploader != null) {
-                $('#uploaderExample .file-list').html('');
-                uploader.destroy();
+        var uploader = $('#uploaderExample').data('zui.uploader');
+        if (uploader != null) {
+            $('#uploaderExample .file-list').html('');
+            uploader.destroy();
+        }
+        $('#uploaderExample').CommonFileUpload({
+            autoUpload: true, // 当选择文件后立即自动进行上传操作
+            max_retries: 0,
+            deleteActionOnDone: true,
+            uploadComplete: uploadComplete,
+            filesRemoved: filesRemoved,
+            filters: {
+                // 最大上传文件为 1MB
+                max_file_size: '10MB',
             }
-            $('#uploaderExample').CommonFileUpload({
-                autoUpload: true, // 当选择文件后立即自动进行上传操作
-                max_retries: 0,
-                deleteActionOnDone: true,
-                uploadComplete: uploadComplete,
-                filesRemoved: filesRemoved,
-                filters: {
-                    // 最大上传文件为 1MB
-                    max_file_size: '10MB',
+        });
+        var options = {
+            div: {
+                height: 250
+            },
+            oper: {
+                url: '/picture/uploadPic',
+                beforeSubmit: function(params) {
+                    params.fileId = versionFileInfo.id;
+                    params.menu = menu;
+                    return params;
+                },
+                success: function() {
+                    bulletinBarTable.ajax.reload(null, false);
                 }
-            });
-            var options = {
-                div: {
-                    height: 250
-                },
-                oper: {
-                    url: '/picture/uploadPic',
-                    beforeSubmit: function(params) {
-                        params.fileId = versionFileInfo.id;
-                        params.menu = menu;
-                        return params;
-                    },
-                    success: function() {
-                        pictureTable.ajax.reload(null, false);
-                    }
-                },
-                txt: {
-                    titleTxt: '导入模块文件',
-                    queryTxt: '确认导入吗？'
-                },
-                validate: taskValidateForm
-            };
-            $('#readExcelModal').commonFormDialog(options);
+            },
+            txt: {
+                titleTxt: '导入模块文件',
+                queryTxt: '确认导入吗？'
+            },
+            validate: taskValidateForm
+        };
+        $('#readExcelModal').commonFormDialog(options);
     });
-});
+})
 
-var pictureTable = {};
+var bulletinBarTable = {};
 function initDatatables() {
-    pictureTable = $('#pictureList').CommonDataTables({
+    bulletinBarTable = $('#bulletinBarList').CommonDataTables({
         dom: 'rtlip',
         ajaxSource: '/picture/selectAll',
         searching: false,
@@ -105,7 +98,7 @@ function deletePicture(id) {
         isFailAutoClose: true,
         queryTxt: '确认删除该图片吗？',
         sucCallBack: function() {
-            pictureTable.ajax.reload(null, false);
+            bulletinBarTable.ajax.reload(null, false);
         }
     }).showDlg();
 }

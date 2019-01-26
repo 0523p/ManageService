@@ -5,36 +5,28 @@ import java.util.Date;
 public class VillageNotice {
     private String guid;
 
+    private String menu;
+
+    private String fileId;
+
     private String title;
 
     private String description;
 
+    private String workUnit;
+
     private Date createTime;
 
-    private String owner;
+    private Date updateTime;
 
-    private String pdf;
+    private String fileName;
 
-    private String file;
-
-    private String fileid;
-
-    private String flag;
-
-    public String getFile() {
-        return file;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFile(String file) {
-        this.file = file;
-    }
-
-    public String getFileid() {
-        return fileid;
-    }
-
-    public void setFileid(String fileid) {
-        this.fileid = fileid;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public String getGuid() {
@@ -43,6 +35,22 @@ public class VillageNotice {
 
     public void setGuid(String guid) {
         this.guid = guid;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
+    }
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
     }
 
     public String getTitle() {
@@ -61,6 +69,14 @@ public class VillageNotice {
         this.description = description;
     }
 
+    public String getWorkUnit() {
+        return workUnit;
+    }
+
+    public void setWorkUnit(String workUnit) {
+        this.workUnit = workUnit;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -69,27 +85,11 @@ public class VillageNotice {
         this.createTime = createTime;
     }
 
-    public String getOwner() {
-        return owner;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
-    public String getPdf() {
-        return pdf;
-    }
-
-    public void setPdf(String pdf) {
-        this.pdf = pdf;
-    }
-
-    public String getFlag() {
-        return flag;
-    }
-
-    public void setFlag(String flag) {
-        this.flag = flag;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
