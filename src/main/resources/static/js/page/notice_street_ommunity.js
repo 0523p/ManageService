@@ -138,12 +138,11 @@ function updateInfo(guid) {
             url: '/notice/updateNotice',
             autoClose: true,
             beforeSubmit: function(params) {
-            /*try{
-                params.pdf = versionFileInfo.id;
-            }catch(e) {
-                params.pdf = "";
-            }*/
-                params.fileId = versionFileInfo.id;
+                try{
+                    params.fileId = versionFileInfo.id;
+                }catch(e) {
+                    params.fileId = "";
+                }
                 params.menu = menu;
                 params.guid = guid;
                 delete params['file'];
