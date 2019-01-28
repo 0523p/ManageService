@@ -143,7 +143,6 @@ function updateInfo(guid) {
                 }catch(e) {
                     params.fileId = "";
                 }
-                params.fileId = versionFileInfo.id;
                 params.menu = menu;
                 params.guid = guid;
                 delete params['file'];
